@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriConnect India</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: linear-gradient(to right, #a8e063, #56ab2f);
+      color: #fff;
+    }
+    header {
+      background: #2e7d32;
+      padding: 20px;
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      color: #fff;
+    }
+    .search-box {
+      text-align: center;
+      margin: 20px;
+    }
+    input {
+      padding: 10px; width: 50%;
+      border-radius: 20px; border: none;
+    }
+    .states {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      padding: 20px;
+    }
+    .state-card {
+      background: #388e3c;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      font-size: 20px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .state-card:hover {
+      background: #1b5e20;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>🌱 AgriConnect India – Crop & State Information</header>
+
+  <div class="search-box">
+    <input type="text" id="search" placeholder="🔍 Search crop (e.g., Rice, Wheat, Cotton)">
+  </div>
+
+  <h2 style="text-align:center;">📍 Select a State</h2>
+  <div class="states">
+    <div class="state-card" onclick="location.href='state.html?name=Karnataka'">Karnataka</div>
+    <div class="state-card" onclick="location.href='state.html?name=Punjab'">Punjab</div>
+    <div class="state-card" onclick="location.href='state.html?name=Maharashtra'">Maharashtra</div>
+    <div class="state-card" onclick="location.href='state.html?name=Tamil Nadu'">Tamil Nadu</div>
+    <!-- Add more states -->
+  </div>
+
+  <script>
+    document.getElementById("search").addEventListener("keypress", function(e) {
+      if (e.key === "Enter") {
+        let crop = this.value.trim();
+        if(crop) {
+          location.href = "crop.html?name=" + crop;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
